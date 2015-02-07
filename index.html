@@ -1,0 +1,46 @@
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/lamantin.js"></script>
+<script type="text/javascript">
+	// Init
+	var api = new Lamantin();
+	// Settings
+	api.apiurl = "http://yourSite.com/api/index.php";
+	api.common.auth_key = "12345";
+	// Callbacks
+	api.banned = showBan;
+	api.errors = showError;
+	api.notify = showNotification;
+	api.update = updateData;
+	
+	// Ban
+	function showBan(data) {
+		console.log(data);
+	}
+
+	// Error
+	function showError(data) {
+		console.log(data);
+	}	
+
+	// Notification
+	function showNotification(data) {
+		console.log(data);
+	}
+
+	// Update
+	function updateData(data) {
+		console.log(data);
+	}
+
+	// Test call
+	console.log( api.sendRequest("testMethod") );
+
+	// Test call with parameters
+	console.log( api.sendRequest("testMethod", { id: 1, vars: { foo: "test" } } ) );
+
+	// Test call with parameters and callback
+	console.log( api.sendRequest("testMethod", { id: 1, vars: { foo: "test" } }, function(data) {
+		console.log(data);
+	} ) );
+
+</script>
